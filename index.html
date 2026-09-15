@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Ads: measure confirmed consultation requests. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18356703897"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18356703897');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DOMOTIK SOLUTIONS LLC — Intelligent Spaces. Seamless Living.</title>
@@ -1708,7 +1716,15 @@
         });
         const result = await response.json();
 
-        if (result.success) {
+        if (response.ok && result.success === true) {
+          // Record only an accepted submission, never a button click or failed request.
+          try {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-18356703897/l_Z7CJOL5fgcEJmllLFE'
+            });
+          } catch (trackingError) {
+            // Analytics must never prevent the customer seeing confirmation.
+          }
           consultForm.reset();
           confirmMsg.style.display = 'block';
           submitBtn.style.display = 'none';
