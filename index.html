@@ -152,7 +152,7 @@
   }
   .nav-cta:hover{background:var(--blue-bright);color:#fff!important}
   .nav-cta::after{display:none}
-  @media (max-width:900px){ .nav-links a:not(.nav-cta){display:none} }
+  @media (max-width:900px){ .nav-links a:not(.nav-cta):not(.nav-social){display:none}.nav-links{gap:14px}.nav-social{font-size:12px} }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -906,6 +906,7 @@
       <a href="#team">Team</a>
       <a href="#projects">Projects</a>
       <a href="#process">Process</a>
+      <a class="nav-social" href="https://www.instagram.com/domotik.solutions/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Domotik (opens in a new tab)">Instagram ↗</a>
       <a href="#contact" class="nav-cta">Consultation</a>
     </div>
   </div>
